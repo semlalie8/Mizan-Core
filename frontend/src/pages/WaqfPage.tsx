@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Heart, Landmark, Users, LineChart } from 'lucide-react';
+import { Heart, Landmark, LineChart } from 'lucide-react';
 
 export default function WaqfPage() {
   const { t } = useTranslation();
