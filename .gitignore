@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+build/
+dist/
+
+# Node
+node_modules/
+dist/
+.eslintcache
+
+# AI & Tools
+.gemini/
+.kluster/
+.agent/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Backend specific
+backend/__pycache__/
+backend/.venv/
+
+# Frontend specific
+frontend/node_modules/
+frontend/dist/
+frontend/.eslintcache
