@@ -10,20 +10,28 @@ interface NewRequestModalProps {
   onClose: () => void;
 }
 
+interface MurabahaRequest {
+  customer_id: string;
+  asset_type: string;
+  asset_description: string;
+  asset_cost: number;
+  bank_markup: number;
+}
+
 export default function NewRequestModal({ isOpen, onClose }: NewRequestModalProps) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
   
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<MurabahaRequest>(() => ({
     customer_id: 'CUST-' + Math.floor(1000 + Math.random() * 9000),
     asset_type: 'VEHICLE',
     asset_description: '',
     asset_cost: 0,
     bank_markup: 0
-  });
+  }));
 
   const mutation = useMutation({
-    mutationFn: (data: any) => api.post('/murabaha/requests', data),
+    mutationFn: (data: MurabahaRequest) => api.post('/murabaha/requests', data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['murabaha-contracts'] });
       onClose();

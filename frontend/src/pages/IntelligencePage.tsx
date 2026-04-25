@@ -1,9 +1,17 @@
 import { useState } from 'react';
 import { Search, TrendingUp, ShieldCheck, Share2, BrainCircuit } from 'lucide-react';
 
+interface ShariaAnalysis {
+  score: number;
+  alignment: string;
+  sentiment: string;
+  signals: string[];
+  forecast: number;
+}
+
 export default function IntelligencePage() {
   const [query, setQuery] = useState('');
-  const [analysis, setAnalysis] = useState<any>(null);
+  const [analysis, setAnalysis] = useState<ShariaAnalysis | null>(null);
   const [loading, setLoading] = useState(false);
 
   const runAnalysis = async () => {
